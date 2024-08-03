@@ -36,16 +36,18 @@
     </style>
 </head>
 <body>
-        <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             var hash = window.location.hash.substring(1); // Get the content after the #
             var iframeSrc = "https://www.xtdevelopment.net/music";
             if (hash) {
                 iframeSrc += "?song=" + encodeURIComponent(hash);
-                document.write('<iframe src="' + iframeSrc + '" title="Music Streaming"></iframe>');
-            } else {
-                document.write('<iframe src="https://www.xtdevelopment.net/music" title="Music Streaming"></iframe>');
             }
+
+            var iframe = document.createElement('iframe');
+            iframe.src = iframeSrc;
+            iframe.title = "Music Streaming";
+            document.body.appendChild(iframe);
         });
     </script>
 </body>
